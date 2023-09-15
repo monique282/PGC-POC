@@ -4,7 +4,7 @@ export type Users = {
     password: string;
 }
 
-export type CustomError {
+export type CustomError = {
     type: string;
     message: string;
 }
