@@ -2,16 +2,13 @@
 // lebrando que todas as Rotas aqui vai pro app
 
 import { Router } from "express";
-import contactsRouter from "@/routers/contactsRoutes";
-
-
+import contactsRouter from "./contactsRoutes";
 
 const router = Router()
 
 router.use([
     //rotas dos contatos
     contactsRouter
-
 ]);
 
 export default router;

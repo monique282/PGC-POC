@@ -1,4 +1,4 @@
-import { Contact } from "@/protocols/protocols";
+import { Contact } from "../protocols/protocols";
 import Joi from "joi";
 
 const contactSchema = Joi.object<Contact>({

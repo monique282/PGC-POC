@@ -1,6 +1,6 @@
 // essa pasta serve para eu reunir todos os erro em um so lugar 
 
-import { CustomError } from "@/protocols/protocols";
+import { CustomError } from "../protocols/protocols";
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 

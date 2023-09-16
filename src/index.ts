@@ -2,8 +2,8 @@ import cors from "cors";
 import express, { json } from "express";
 import "express-async-errors";
 import dotenv from "dotenv";
-import router from "@/routers/indexRoutes";
-import errorHandler from "@/middlewares/errorMiddlewares";
+import router from "./routers/indexRoutes";
+import errorHandler from "./middlewares/errorMiddlewares";
 
 
 //configuração da API

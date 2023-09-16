@@ -3,12 +3,12 @@
 // ela é chamada nos controles
 // ela chama o repository
 
-import { errors } from "@/errors/allMistakes";
-import { CreateContact } from "../protocols/protocols";
-import contactRepository from "@/repositories/contactsRepository";
+import { errors } from "../errors/allMistakes";
+import { Contact, CreateContact } from "../protocols/protocols";
+import contactRepository from "../repositories/contactsRepository";
 
 // função para verificar as coisas referentes ao cadastro de contato
-async function contactPost(body: CreateContact) {
+async function contactPost(body: CreateContact): Promise<CreateContact> {
 
    // requisição para ver se o celular ja foi cadastrado
    const contactExists = await contactRepository.phoneExistsContactPost(body.cellPhone);
@@ -23,8 +23,17 @@ async function contactPost(body: CreateContact) {
    return;
 };
 
+// função para pegar os contatos
+async function contactGet(): Promise<Contact[]> {
+
+   // ceu certo kkk
+   const result = await contactRepository.contactGet();
+   console.log(result)
+   return result;
+};
+
 const contactServises = {
-   contactPost
+   contactPost, contactGet
 };
 
 export default contactServises;
