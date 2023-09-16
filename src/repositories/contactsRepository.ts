@@ -10,7 +10,7 @@ async function createContactPost(body: CreateContact) {
       INSERT INTO contacts (name, kinship, "cellPhone", residential) VALUES ($1, $2, $3, $4);
     `;
 
-    const values = [body.name, body.kinship || null, body.cellPhone, body.residential || null];
+    const values = [body.name, body.kinship || '', body.cellPhone, body.residential || ''];
 
     const serveSend = await db.query<Contact>(query, values)
     return serveSend;
