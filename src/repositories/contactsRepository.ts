@@ -32,9 +32,37 @@ async function contactGet() {
     return result.rows;
 };
 
+// verificar se o contato ja existe
+async function idExistsContactPost(id: any) {
+
+    const result = await db.query<Contact>(`
+   SELECT * FROM contacts WHERE id = $1;`, [id]);
+    return result.rows;
+};
+
+// atualizando os contatos
+export async function updateContactPut(body: CreateContact, id: number) {
+    const query = `
+    UPDATE contacts SET name = $1, kinship = $2, "cellPhone" = $3, residential = $4  WHERE id = $5;
+  `;
+
+    const values = [body.name, body.kinship || '', body.cellPhone, body.residential || '', id];
+
+    const result = await db.query(query, values)
+    return result;
+};
+
+// apagar contato
+async function contactDelete(id: any) {
+
+    const result = await db.query<Contact>(`
+    DELETE FROM contacts WHERE id = $1;`, [id])
+    return result.rows;
+};
+
 const contactRepository = {
-    createContactPost, phoneExistsContactPost,
-    contactGet
+    createContactPost, phoneExistsContactPost, contactDelete,
+    contactGet, updateContactPut, idExistsContactPost
 }
 
 export default contactRepository;

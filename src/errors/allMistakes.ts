@@ -5,44 +5,20 @@
 function notFound(item: string) {
     return {
         type: "notFound",
-        message: `${item} não encontrado(a)`
+        message: `${item}`
     };
 };
 
 //409
-function conflict(item = "conflito") {
+function conflict(item: string = "conflito") {
     return {
         type: "conflict",
         message: `${item}`
     }
 };
 
-//422
-function UnprocessableEntity(item: string) {
-    return {
-        type: "Unprocessable Entity",
-        message: `${item}`
-    };
-};
-
-//400
-function BadRequest(item: string) {
-    return {
-        type: "Bad request",
-        message: `${item}`
-    };
-};
-
-//500
-function intervalServerError(item: string) {
-    return {
-        type: "internal server error",
-        message: `${item}`
-    };
-};
 
 export const errors = {
-    notFound, conflict, UnprocessableEntity,
-    BadRequest, intervalServerError
+    notFound, conflict
 };
 
