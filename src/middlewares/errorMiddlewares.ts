@@ -4,9 +4,10 @@ import { CustomError } from "@/protocols/protocols";
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 
+
 export default function errorHandler (error: CustomError, req: Request, res: Response, next: NextFunction){
 
-// erro de conflito 409
+// erro de "conflito" 409
 if(error.type === "conflict"){
     return res.status(httpStatus.CONFLICT).send(error.message);
 };

@@ -2,13 +2,15 @@
 // lebrando que todas as Rotas aqui vai pro app
 
 import { Router } from "express";
-import usersRouter from "./usersRoutes";
+import contactsRouter from "@/routers/contactsRoutes";
+
+
 
 const router = Router()
 
 router.use([
-    //rotas das usuario
-    usersRouter,
+    //rotas dos contatos
+    contactsRouter
 
 ]);
 

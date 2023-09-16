@@ -1,10 +1,17 @@
-export type Users = {
+import { type } from "os";
+
+export type Contact = {
+    id: number;
     name: string;
-    email: string;
-    password: string;
+    kinship?: string;
+    cellPhone: string;
+    residential?: string;
 }
+
+export type CreateContact = Omit<Contact, "id"> 
 
 export type CustomError = {
     type: string;
     message: string;
 }
+
