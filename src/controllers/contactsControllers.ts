@@ -37,11 +37,9 @@ export async function contactsPut(req: Request<{ id: string }>, res: Response): 
   // pegando o id pelo paramentros
   const id: number = parseInt(req.params.id, 10);
 
-  console.log(id)
   // recebendo as informações do body
   const body = req.body as CreateContact
 
-  console.log(body)
   // fazendo a requisição para o service para enviar os dados para o banco
   const result = await contactServises.contactPut(body, id);
 
@@ -55,7 +53,6 @@ export async function contactsDelete(req: Request<{ id: string }>, res: Response
 
   // pegando o id pelo paramentros
   const id: number = parseInt(req.params.id, 10);
-  console.log(id)
 
   // fazendo a requisição para o service para apagar o contatos
   const result = await contactServises.contactDelete(id);
